@@ -18,9 +18,9 @@ Backend:
 - [x] Integração com Express
 - [x] Validação das rotas com Yup
 - [x] Desenvolvimento do CRUD de User
-- [ ] Criar hash da password do User
+- [x] Criar hash da password do User
 - [ ] Criar sessão do usuário com JWT
-- [ ] Mapear rotas que exigem JWT
+- [ ] Aplicar middleware nas rotas que exigem JWT
 
 Frontend:
 
@@ -41,16 +41,22 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 Para instalar o projeto, siga estas etapas:
 
+- Configure seu .env
+
+```
+cp .env.example .env
+```
+
 - Instale as dependências
 
 ```
 yarn
 ```
 
-- Configure seu .env
+- Aplique as migrations
 
 ```
-cp .env.example .env
+yarn prisma:migrate
 ```
 
 ## ☕ Usando projeto
