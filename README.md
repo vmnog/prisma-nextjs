@@ -5,8 +5,6 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/vmnog/prisma-nextjs?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/vmnog/prisma-nextjs?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/vmnog/prisma-nextjs?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/vmnog/prisma-nextjs?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/vmnog/prisma-nextjs?style=for-the-badge)
 
 > Projeto FullStack criado para estudos de Prisma com Nextjs a partir das documentações das tecnologias listadas a baixo. O projeto tem funcionalidades simples para fins de aprendizado e testes.
 

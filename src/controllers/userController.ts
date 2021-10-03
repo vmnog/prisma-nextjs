@@ -1,11 +1,12 @@
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
+import { encryptPassword } from "../services/crypto";
 import {
   createUserValidation,
-  deleteByEmailValidation,
   findByEmailValidation,
-  updateUserValidation,
-} from "../validations/user/userControllerValidation";
+  updateByEmailValidation,
+  deleteByEmailValidation,
+} from "../validations/userValidation";
 
 const prisma = new PrismaClient({});
 
@@ -19,17 +20,17 @@ export const userController = {
       return response.status(400).json({ error });
     }
 
-    const findUser = await prisma.user.findUnique({ where: { email } });
+    const foundUser = await prisma.user.findUnique({ where: { email } });
 
-    if (findUser) {
-      return response.status(403).json({ error: "User already exists" });
+    if (foundUser) {
+      return response.status(403).json({ message: "User already exists" });
     }
 
     const user = await prisma.user.create({
       data: {
         name,
         email,
-        password,
+        password: encryptPassword(password),
       },
     });
 
@@ -54,7 +55,7 @@ export const userController = {
     const user = await prisma.user.findUnique({ where: { email } });
 
     if (!user) {
-      return response.status(404).json({ error: "User not found" });
+      return response.status(404).json({ message: "User not found" });
     }
 
     return response.status(200).json(user);
@@ -72,7 +73,7 @@ export const userController = {
     const user = await prisma.user.findUnique({ where: { email } });
 
     if (!user) {
-      return response.status(404).json({ error: "User not found" });
+      return response.status(404).json({ message: "User not found" });
     }
 
     await prisma.user.delete({ where: { email } });
@@ -84,7 +85,7 @@ export const userController = {
     const { email, name, password } = request.body;
 
     try {
-      await updateUserValidation.validate({ email, name, password });
+      await updateByEmailValidation.validate({ email, name, password });
     } catch (error) {
       return response.status(400).json({ error });
     }
@@ -92,7 +93,7 @@ export const userController = {
     const user = await prisma.user.findUnique({ where: { email } });
 
     if (!user) {
-      return response.status(404).json({ error: "User not found" });
+      return response.status(404).json({ message: "User not found" });
     }
 
     const updatedUser = await prisma.user.update({

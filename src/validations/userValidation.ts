@@ -14,7 +14,7 @@ export const deleteByEmailValidation = yup.object().shape({
   email: yup.string().email().required(),
 });
 
-export const updateUserValidation = yup.object().shape({
+export const updateByEmailValidation = yup.object().shape({
   name: yup.string(),
   password: yup.string().min(6).max(18),
   email: yup.string().email().required(),
