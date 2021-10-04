@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, User } from "@prisma/client";
 import { Request, Response } from "express";
 import { encryptPassword } from "../services/crypto";
 import {
@@ -26,13 +26,15 @@ export const userController = {
       return response.status(403).json({ message: "User already exists" });
     }
 
-    const user = await prisma.user.create({
+    const user: Partial<Pick<User, "password">> = await prisma.user.create({
       data: {
         name,
         email,
         password: encryptPassword(password),
       },
     });
+
+    delete user.password;
 
     return response.status(200).json(user);
   },
