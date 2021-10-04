@@ -19,8 +19,9 @@ Backend:
 - [x] Validação das rotas com Yup
 - [x] Desenvolvimento do CRUD de User
 - [x] Criar hash da password do User
-- [ ] Criar sessão do usuário com JWT
-- [ ] Aplicar middleware nas rotas que exigem JWT
+- [x] Criar sessão do usuário com JWT
+- [x] Aplicar middleware nas rotas que exigem JWT
+- [x] Quando criado nova sessão JWT invalidar antigo token
 
 Frontend:
 

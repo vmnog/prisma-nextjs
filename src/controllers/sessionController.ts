@@ -1,12 +1,15 @@
 import { PrismaClient } from "@prisma/client";
+
 import { Request, Response } from "express";
+
 import { comparePassword } from "../services/crypto";
+import { generateToken } from "../services/jsonwebtoken";
 import { createSessionValidation } from "../validations/sessionValidation";
 
 const prisma = new PrismaClient({});
 
 export const sessionController = {
-  async create(request: Request, response: Response) {
+  async updateOrCreate(request: Request, response: Response) {
     const { email, password } = request.body;
 
     try {
@@ -29,12 +32,28 @@ export const sessionController = {
       return response.status(403).json({ message: "Invalid password" });
     }
 
-    const { token } = await prisma.session.create({
+    const generatedToken = generateToken(user.id);
+
+    const foundSession = await prisma.session.findFirst({
+      where: { userId: user.id },
+    });
+
+    if (foundSession) {
+      const session = await prisma.session.update({
+        where: { id: foundSession.id },
+        data: { token: generatedToken },
+      });
+
+      return response.status(200).json(session);
+    }
+
+    const session = await prisma.session.create({
       data: {
+        token: generatedToken,
         user: { connect: { id: user.id } },
       },
     });
 
-    return response.status(200).json({ token });
+    return response.status(200).json(session);
   },
 };
