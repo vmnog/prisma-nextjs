@@ -38,15 +38,23 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 - Você instalou a versão mais estável de `nodejs`
 - Ter `yarn` instalado localmente
 
-## 🚀 Instalando projeto
+## 🚀 Instalando projeto backend
 
 Para instalar o projeto, siga estas etapas:
+
+- Entre na pasta da api
+
+```
+cd api
+```
 
 - Configure seu .env
 
 ```
 cp .env.example .env
 ```
+
+- Configure as variaveis CRYPTO_SECRET, JWT_SECRET
 
 - Instale as dependências
 
@@ -75,6 +83,8 @@ yarn dev
 ```
 yarn prisma:studio
 ```
+
+> 💡 Existe um arquivo postman anexado ao projeto que pode ser usado
 
 ## 📫 Contribuindo para projeto
 

@@ -23,12 +23,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/user",
+							"raw": "http://localhost:4000/user",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"user"
 							]
@@ -52,12 +52,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/user/",
+							"raw": "http://localhost:4000/user/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"user",
 								""
@@ -94,12 +94,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/user/email",
+							"raw": "http://localhost:4000/user/email",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"user",
 								"email"
@@ -133,12 +133,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/user/email",
+							"raw": "http://localhost:4000/user/email",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"user",
 								"email"
@@ -172,12 +172,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/user/email",
+							"raw": "http://localhost:4000/user/email",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"user",
 								"email"
@@ -206,12 +206,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/session",
+							"raw": "http://localhost:4000/session",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "4000",
 							"path": [
 								"session"
 							]
